@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 
 import styles from '@/components/Exercises02/Exercises02.module.css'
 
@@ -21,15 +22,18 @@ export default function Toasty() {
 
   return (
     <div ref={wrapperRef} className={styles.wrapper}>
-      <div
+      <motion.div
         className={styles.character}
-        style={{
-          transition: 'transform 200ms',
-          transform: `translateX(${translateX})`,
+        animate={{ x: translateX }}
+        transition={{
+          type: 'spring',
+          stiffness: 300,
+          damping: 70,
+          restDelta: 0.01,
         }}
       >
         👻
-      </div>
+      </motion.div>
     </div>
   )
 }
