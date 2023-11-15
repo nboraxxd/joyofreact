@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import '@/components/GettingStarted.css'
 
 function Toggle() {
   const [isEnabled, setIsEnabled] = useState(true)

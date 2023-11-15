@@ -1,4 +1,5 @@
-import styles from '@/components/Exercises01.module.css'
+import { motion } from 'framer-motion'
+import styles from '@/components/Exercises01/Exercises01.module.css'
 
 function Toggle({ value, onChange, ...delegated }) {
   return (
@@ -10,12 +11,11 @@ function Toggle({ value, onChange, ...delegated }) {
       onClick={() => onChange(!value)}
       {...delegated}
     >
-      <span
+      <motion.span
         className={styles.ball}
-        style={{
-          transition: 'transform 300ms',
-          transform: `translateX(${value ? '100%' : '0%'})`,
-        }}
+        initial={false}
+        animate={{ x: value ? '100%' : 0 }}
+        transition={{ type: 'spring', stiffness: 500, damping: 35 }}
       />
     </button>
   )
