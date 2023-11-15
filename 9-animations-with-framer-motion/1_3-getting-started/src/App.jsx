@@ -1,9 +1,14 @@
-import Toggle from '@/component/gettingStarted'
+import { useState } from 'react'
+import Toggle from '@/components/Exercises01'
 
-export default function App() {
+function App() {
+  const [isEnabled, setIsEnabled] = useState(true)
+
   return (
     <>
-      <Toggle />
+      <Toggle value={isEnabled} onChange={setIsEnabled} />
     </>
   )
 }
+
+export default App
