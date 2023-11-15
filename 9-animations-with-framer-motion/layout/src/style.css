@@ -1,0 +1,73 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 180px;
+  height: 180px;
+  background: hsl(161.98deg 100% 50%);
+  background: oklch(0.87 0.25 162.3);
+  color: black;
+  padding: 16px;
+  font-size: 1.5rem;
+  will-change: true;
+
+  /*
+    NOTE: This property isn't doing anything anymore,
+    since we added `justify-content: center`. We can
+    safely remove it, but it may still be desirable in
+    certain situations (eg. if there's enough text to
+    line-wrap).
+  */
+  text-align: center;
+}
+
+.wrapper.maximized {
+  position: absolute;
+  inset: 0;
+  width: revert;
+  height: revert;
+}
+
+
+
+html {
+  background: hsl(210deg 15% 6%);
+  color-scheme: dark;
+}
+html,
+body {
+  padding: 0;
+}
+body {
+  overflow: hidden;
+  position: relative;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+}
+button {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  max-width: 200px;
+  margin: auto;
+  z-index: 2;
+  background: hsl(210deg 15% 6% / 0.6);
+  border-radius: 1px;
+  padding: 8px 32px;
+  border: none;
+  outline: 2px solid hsl(50deg 0% 50% / 1);
+  font-weight: bold;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+button:hover {
+  background: hsl(210deg 15% 6% / 0.7);
+}
+button:active {
+  outline: 1px solid hsl(50deg 0% 50% / 1);
+}
