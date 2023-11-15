@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useId, useState } from 'react'
 import { motion } from 'framer-motion'
 
 import styles from './FlexDemo.module.css'
@@ -10,11 +10,11 @@ export default function FlexDemo() {
 
   return (
     <section className={styles.wrapper}>
-      <div className={styles.demoArea}>
+      <div className={styles.demoArea} style={{ flexDirection, justifyContent, alignItems }}>
         {ITEMS.map((item) => (
-          <div key={item.id} className={styles.flexItem}>
-            {item.label}
-          </div>
+          <motion.div layout key={item.id} className={styles.flexItem}>
+            <motion.div layout={'position'}>{item.label}</motion.div>
+          </motion.div>
         ))}
       </div>
 
@@ -51,7 +51,7 @@ export default function FlexDemo() {
 }
 
 function SelectControl({ label, value, onChange, ...delegated }) {
-  const id = React.useId()
+  const id = useId()
 
   return (
     <div className={styles.selectControl}>
