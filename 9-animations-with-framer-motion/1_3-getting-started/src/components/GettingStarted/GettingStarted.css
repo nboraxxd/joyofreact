@@ -10,12 +10,15 @@ button {
   cursor: pointer;
   backdrop-filter: blur(10px);
 }
+
 button:hover {
   background: hsl(0deg 0% 100% / 0.1);
 }
+
 button:active {
   outline: 1px solid hsl(50deg 0% 50% / 1);
 }
+
 .yellow.ball {
   width: 100px;
   height: 100px;

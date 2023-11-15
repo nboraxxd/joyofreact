@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import styles from '@/components/Exercises01/Exercises01.module.css'
 
-function Toggle({ value, onChange, ...delegated }) {
+export default function Toggle({ value, onChange, ...delegated }) {
   return (
     <button
       type="button"
@@ -20,5 +20,3 @@ function Toggle({ value, onChange, ...delegated }) {
     </button>
   )
 }
-
-export default Toggle
