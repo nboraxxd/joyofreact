@@ -1,4 +1,7 @@
 import { LayoutGroup, motion } from 'framer-motion'
+import { ChevronDown, ChevronUp } from 'react-feather'
+
+import VisuallyHidden from './VisuallyHidden'
 
 export default function WidgetProcessor({ widgets, processWidget }) {
   const unprocessedWidgets = widgets.filter((widget) => widget.status === 'unprocessed')
@@ -18,6 +21,18 @@ export default function WidgetProcessor({ widgets, processWidget }) {
               />
             )
           })}
+        </div>
+
+        <div className="actions">
+          <button>
+            <VisuallyHidden>Process widget</VisuallyHidden>
+            <ChevronDown />
+          </button>
+
+          <button>
+            <ChevronUp />
+            <VisuallyHidden>Revert widget</VisuallyHidden>
+          </button>
         </div>
 
         <div className="outbox">
