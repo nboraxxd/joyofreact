@@ -7,6 +7,12 @@ export default function WidgetProcessor({ widgets, processWidget }) {
   const unprocessedWidgets = widgets.filter((widget) => widget.status === 'unprocessed')
   const processedWidgets = widgets.filter((widget) => widget.status === 'processed')
 
+  function handleProcessWidgetBtn(widget, status) {
+    if (!widget) return
+
+    processWidget(widget.id, status)
+  }
+
   return (
     <LayoutGroup>
       <div className="wrapper">
@@ -24,12 +30,12 @@ export default function WidgetProcessor({ widgets, processWidget }) {
         </div>
 
         <div className="actions">
-          <button>
+          <button onClick={() => handleProcessWidgetBtn(unprocessedWidgets.at(-1), 'processed')}>
             <VisuallyHidden>Process widget</VisuallyHidden>
             <ChevronDown />
           </button>
 
-          <button>
+          <button onClick={() => handleProcessWidgetBtn(processedWidgets.at(0), 'unprocessed')}>
             <ChevronUp />
             <VisuallyHidden>Revert widget</VisuallyHidden>
           </button>

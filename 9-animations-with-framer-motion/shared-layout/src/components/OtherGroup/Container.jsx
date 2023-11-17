@@ -13,17 +13,13 @@ export default function Container() {
   })
 
   function processWidget(id, status) {
-    const nextWidgets = widgets.map((widget) => {
-      if (widget.id !== id) {
-        return widget
-      }
-      return {
-        id,
-        status,
-      }
-    })
+    const remainingWidgets = widgets.filter((widget) => widget.id !== id)
 
-    setWidgets(nextWidgets)
+    if (status === 'processed') {
+      setWidgets([{ id, status }, ...remainingWidgets])
+    } else if (status === 'unprocessed') {
+      setWidgets([...remainingWidgets, { id, status }])
+    }
   }
 
   return (
