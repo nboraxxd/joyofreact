@@ -1,8 +1,7 @@
+import { BookPage } from '@/pages/BookPage'
+
 function App() {
-  return (
-    <>
-    </>
-  )
+  return <BookPage />
 }
 
 export default App
