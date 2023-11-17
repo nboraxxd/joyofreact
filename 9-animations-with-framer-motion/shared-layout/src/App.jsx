@@ -1,9 +1,11 @@
-import { Navigation } from '@/components/SharedLayout'
+// import { Navigation } from '@/components/SharedLayout'
+import { Container } from '@/components/Group'
 
 function App() {
   return (
     <>
-      <Navigation />
+      {/* <Navigation /> */}
+      <Container />
     </>
   )
 }
