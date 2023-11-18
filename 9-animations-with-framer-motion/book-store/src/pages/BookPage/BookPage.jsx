@@ -1,26 +1,17 @@
-import React from 'react'
+import { useState } from 'react'
 
-import DATA from '@/data'
+import DATA from '@/utils/data'
 import { BookGrid } from '@/components/BookGrid'
 import { ReadingList } from '@/components/ReadingList'
 import styles from './BookPage.module.css'
 
 export default function BookPage() {
-  const [books, setBooks] = React.useState(DATA)
+  const [books, setBooks] = useState(DATA)
 
   function toggleBook(toggledBook) {
-    const nextBooks = books.map((book) => {
-      if (book.isbn !== toggledBook.isbn) {
-        return book
-      }
+    const nextBooks = books.filter((book) => book.isbn !== toggledBook.isbn)
 
-      return {
-        ...book,
-        selected: !book.selected,
-      }
-    })
-
-    setBooks(nextBooks)
+    setBooks([...nextBooks, { ...toggledBook, selected: !toggledBook.selected }])
   }
 
   const selectedBooks = books.filter((book) => book.selected)
